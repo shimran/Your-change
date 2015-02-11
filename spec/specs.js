@@ -22,4 +22,8 @@ describe('coinCombinations', function() {
   it("takes 1 penny and returns 0 quarter(s) 0 dime(s) 0 nickel(s) 1 pennie(s)", function() {
     expect(coinCombinations(1)).to.equal("0 quarter(s) 0 dime(s) 0 nickel(s) 1 pennie(s)")
   });
+
+  it("takes an input of 107 and returns 4 quarter(s), 0 dime(s), 1 nickel(s), 2 pennies", function() {
+    expect(coinCombinations(107)).to.equal("4 quarter(s) 0 dime(s) 1 nickel(s) 2 pennie(s)");
+  });
 });

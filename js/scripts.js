@@ -16,15 +16,23 @@ var coinCombinations = (function(amount) {
     if (amount % 25 ==  0) {
       return quarter_amount
 
-    } else if (amount % 25 != 0 && amount % 10 ==0 ) {
+    } else if (amount / 25 == 0 && amount % 10 ==0 ) {
       return quarter_amount.concat(dime_amount)
 
-    } else if (amount % 10 != 0 && amount % 5 ==0) {
+    } else if (amount / 10 == 0 && amount % 5 ==0) {
       return quarter_amount.concat(dime_amount.concat(nickel_amount))
 
     } else {
       return quarter_amount.concat(dime_amount.concat(nickel_amount).concat(penny_amount))
     }
+});
 
+$(function() {
+  $("form#amount").submit(function(event) {
+    var amount = parseInt($("input#amount").val());
+    var result = coinCombinations(amount);
 
+    $(".result").text(result);
+    event.preventDefault();
+  });
 });
